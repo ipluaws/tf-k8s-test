@@ -35,7 +35,7 @@ $aws ecr get-login-password --region <region> | docker login --username AWS --pa
 
 $docker push <account-id>.dkr.ecr.<region>.amazonaws.com/nodejs-app
 
-Replace <region>, <account-id>, and <repo-name> with your specific values.
+Replace '<region>', '<account-id>', and '<repo-name>' with your specific values.
 
 **Step 4: Deploy Application to Kubernetes**
 
