@@ -180,3 +180,51 @@ spec:
         - name: ssl-certs
           hostPath:
             path: "/etc/ssl/certs/ca-bundle.crt"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics-server
+  namespace: kube-system
+  labels:
+    k8s-app: metrics-server
+spec:
+  selector:
+    matchLabels:
+      k8s-app: metrics-server
+  template:
+    metadata:
+      labels:
+        k8s-app: metrics-server
+    spec:
+      serviceAccountName: metrics-server
+      volumes:
+      # mount in tmp so we can safely use from-scratch images and/or read-only containers
+      - name: tmp-dir
+        emptyDir: {}
+      containers:
+      - name: metrics-server
+        image: k8s.gcr.io/metrics-server/metrics-server:v0.5.0
+        imagePullPolicy: IfNotPresent
+        args:
+          - --cert-dir=/tmp
+          - --secure-port=4443
+          - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+          - --kubelet-insecure-tls
+          - --kubelet-use-node-status-port
+        ports:
+        - name: main-port
+          containerPort: 4443
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: main-port
+            scheme: HTTPS
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+        volumeMounts:
+        - name: tmp-dir
+          mountPath: /tmp
