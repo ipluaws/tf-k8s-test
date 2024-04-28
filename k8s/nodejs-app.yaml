@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: <account-id>.dkr.ecr.<region>.amazonaws.com/<sample-app>
+        image: {account-id}.dkr.ecr.{region}.amazonaws.com/{sample-app}
         ports:
         - containerPort: 3000
         resources:
