@@ -25,17 +25,17 @@ Finally the 'apply' command will provision the basic infrastructure components l
 
 3.1. Build the Docker image using the following command:
 
-$docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/<repo-name> .
+$docker build -t {account-id}.dkr.ecr.{region}.amazonaws.com/{repo-name} .
 
 3.2. Authenticate Docker with ECR:
 
-$aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account-id>.dkr.<region>.amazonaws.com
+$aws ecr get-login-password --region {region} | docker login --username AWS --password-stdin {account-id}.dkr.{region}.amazonaws.com
 
 3.3. Push the Docker image to ECR:
 
-$docker push <account-id>.dkr.ecr.<region>.amazonaws.com/nodejs-app
+$docker push {account-id}.dkr.ecr.{region}.amazonaws.com/{repo-name}
 
-Replace '<region>', '<account-id>', and '<repo-name>' with your specific values.
+Replace '{region}', '{account-id}', and '{repo-name}' with your specific values.
 
 **Step 4: Deploy Application to Kubernetes**
 
