@@ -19,7 +19,7 @@ Finally the 'apply' command will provision the basic infrastructure components l
 
 2.1. Navigate to the /k8s directory within the cloned repository ($cd k8s/).
 
-2.2. Execute the prep.sh script ($./prep.sh). This script updates the .kube/config file and deploys the cluster autoscaler pods in the kube-system namespace.
+2.2. Execute the prep.sh script ($./prep.sh). This script updates the .kube/config file and deploys the cluster autoscaler and metrics-server in the kube-system namespace.
 
 **Step 3: Build and Push Docker Image to ECR**
 
