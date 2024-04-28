@@ -41,7 +41,12 @@ Replace '{region}', '{account-id}', and '{repo-name}' with your specific values.
 
 **Step 4: Deploy Application to Kubernetes**
 
-4.1. After pushing the Docker image to the Docker registry, apply the Kubernetes configuration file (nodejs-app.yaml) using the command:
+4.1. After pushing the Docker image to the Docker registry, make the following change in 'nodejs-app.yaml':
+image: {account-id}.dkr.ecr.{region}.amazonaws.com/{sample-app}
+example: 
+image: 123456789123.dkr.ecr.us-east-1.amazonaws.com/nodejs-app
+
+4.2. Deploy the app:
 
 $kubectl apply -f nodejs-app.yaml
 
