@@ -25,7 +25,7 @@ Finally the 'apply' command will provision the basic infrastructure components l
 
 3.1. Build the Docker image using the following command:
 
-$docker build -t <account-id>.dkr.ecr.us-east-1.amazonaws.com/<repo-name> .
+$docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/<repo-name> .
 
 3.2. Authenticate Docker with ECR:
 
