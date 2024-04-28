@@ -1,3 +1,5 @@
+This project is entirely built within the AWS environment, utilizing an AWS EKS Kubernetes cluster. Infrastructure provisioning is automated using Terraform code.
+
 **Step 1: Set Up AWS Environment with Terraform**
 
 1.1. Configure your local machine with AWS credentials using the aws configure command. Provide your access key, secret access key, and preferred region.
