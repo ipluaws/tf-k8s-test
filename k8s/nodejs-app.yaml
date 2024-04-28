@@ -11,7 +11,7 @@ kind: Deployment
 metadata:
   name: nodejs-app
 spec:
-  replicas: 6  # Initial number of replicas
+  replicas: 2  # Initial number of replicas
   selector:
     matchLabels:
       app: nodejs-app
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: 686823707044.dkr.ecr.us-east-1.amazonaws.com/nodejs-app
+        image: <account-id>.dkr.ecr.<region>.amazonaws.com/<sample-app>
         ports:
         - containerPort: 3000
         resources:
