@@ -11,8 +11,11 @@ This project is entirely built within the AWS environment, utilizing an AWS EKS 
 1.4. Provision the infrastructure by running the following Terraform commands:
 
 $terraform init
+
 $terraform validate
+
 $terraform plan
+
 $terraform apply
 
 Finally the 'apply' command will provision the basic infrastructure components like VPC, ECR repository, EKS cluster, and necessary policies and security groups.
@@ -62,7 +65,9 @@ $kubectl get svc nodejs-app -o jsonpath='{.status.loadBalancer.ingress[0].hostna
 
 Example:
 http://xxxxxxx-dbe9035230c86932.elb.<region>.amazonaws.com/
+
 http://xxxxxxx-dbe9035230c86932.elb.<region>.amazonaws.com/healthz
+
 http://xxxxxxx-dbe9035230c86932.elb.<region>.amazonaws.com/ready
 
 **Step 6: Auto-Scaling**
